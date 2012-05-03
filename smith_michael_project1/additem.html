@@ -1,4 +1,10 @@
 <!doctype html>
+<!--Project 1 Visual Frameworks Online Term 1205-->
+<!--Michael Smith Jr.-->
+<!--The Diabetic's Blood Sugar Log-->
+
+
+
 <html>
 	<head>
 		
@@ -27,31 +33,50 @@
 
 	</head>
 	<body>
-		<h1>Blood Sugar Log Entry Form</h1>
+		<!--Form Title-->
+		<header>
+			<h1>Blood Sugar Log Entry Form</h1>
+		</header>
+		<!--Log Entry Form-->
 		<form action="#" method="post">
 			<fieldset>
 				<legend>Log Entry</legend>
 				<ul>
 					<li><label for="fname">First Name:</label><input type="text" id="fname" ></li>
 					<li><label for="lname">Last Name:</label><input type="text" id="lname" ></li>
-					<li><label for="date">Today's Date:</label><input type="text" id="date" ></li>
-					<li><label for="time">Current Time:</label><input type="text" id="time" ></li>
-					<li><label for="bsreading">Blood Sugar Reading:</label><input type="test" id="bsreading" ></li>
-					<li>How are you feeling?:
+					<li><label for="date">Today's Date:</label><input type="date" id="date" ></li>
+					<li><label for="time">Current Time:</label><input type="time" id="time" ></li>
+					<li><label for="bsreading">Blood Sugar Reading:</label><input type="number" min="10" max="400" name="bsreading" id="bsreading" ></li>
+					<li>Are you male or female?:
 						<ul>
-							<li><input type="radio" value="Good" id="good" name="condition"/><label for="good">Good</label></li>
-							<li><input type="radio" value="Bad" id="bad" name="condition"/><label for="bad">Bad</label></li>
+							<li><input type="radio" value="Male" id="male" name="sex"/><label for="Male">Male</label></li>
+							<li><input type="radio" value="Female" id="female" name="sex"/><label for="Female">Female</label></li>
 						</ul>
-
-
 					</li>
-
-
-
+					<li><label for="condition">On a scale of 1 to 10, How are you feeling?:</label><input type="range" min="1" max="10" id="condition" ></li>
+					<li>
+						<label for="treatment">Treatment Method Used</label>
+						<select id="treatment">
+								<option value="Diet and Pills">Diet and Pills</option>
+								<option value="Insulin Injection">Insulin Injection</option>
+						</select>
+					</li>
+					<li><label for="comments">Any comments or How you feel bad.:</label><textarea id="comments"></textarea></li>
 				</ul>
+				<!--Submit Log and Clear Log buttons-->
+				<input type="submit" value="Submit Log Entry" />
+				<input type="reset" name="resetbutton" id="resetbutton" value="Clear Form" />
 			</fieldset>
-
 		</form>
+		<footer>
+			<nav>
+				<ul>
+					<li><a href='#' title="Clear Stored Data">Clear Stored Data</a></li>
+					<li><a href='#' title="Display Log">Display Log</a></li>
+					<li><a href='index.html' title="Return to Main Page">Return to Main Page</a></li>
+				</ul>
+			</nav>
 
+		</footer>
 	</body>
 </html>
