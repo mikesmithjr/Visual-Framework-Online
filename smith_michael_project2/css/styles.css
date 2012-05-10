@@ -26,6 +26,7 @@ h1{
 
 label{
 	display: block;
+	word-spacing: 0.2em;
 }
 
 legend{
@@ -38,11 +39,17 @@ a:hover{color:green; outline: 1px dotted red;}
 
 form{
 	overflow: scroll;
+
 }
 
+li{
+	list-style: circle;
+	font-family: Helvetica, sans-serif;
+}
 footer{
 	background: white;
 	margin-left: 10px;
 	margin-right: 10px;
 	border: 1px solid black;
+	text-align: center;
 }
