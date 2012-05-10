@@ -48,13 +48,13 @@ window.addEventListener("DOMContentLoaded", function () {
 			case "on":
 				$("logEntryForm").style.display = "none";
 				$("clear").syle.display = "inline";
-				$("displayLink").style.display = "none";
+				$("displayLog").style.display = "none";
 				$("addNew").style.display = "inline";
 				break;
 			case "off":
 				$("logEntryForm").style.display = "block";
 				$("clear").syle.display = "inline";
-				$("displayLink").style.display = "inline";
+				$("displayLog").style.display = "inline";
 				$("addNew").style.display = "none";
 				$("logItems").style.display = "none";
 				break;
@@ -84,7 +84,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 
 	function getData(){
-		//toggleControls("on");
+		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data in Local Storage.");
 		}
@@ -124,15 +124,12 @@ window.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	/*//Variable defaults
-	var treatmentTypes = ["--Choose A Treatment--", "Diet and Pills", "Insulin Injections"],
-		sexValue
-	;*/
+	
 	makeCats();
 
 
 	//Set Link and Submint Click Events
-	var displayLink = $("displayLink");
+	var displayLink = $("displayLog");
 	displayLink.addEventListener("click", getData);
 	var clearLink = $("clear");
 	clearLink.addEventListener("click", clearData);
