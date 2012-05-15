@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		switch(n){
 			case "on":
 				$("logEntryForm").style.display = "none";
-				$("clear").syle.display = "inline";
+				$("clear").style.display = "inline";
 				$("displayLog").style.display = "none";
 				$("addNew").style.display = "inline";
 				break;
@@ -75,7 +75,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			logItem.currentTime = ["Current Time:", $("currentTime").value];
 			logItem.bsreading = ["Blood Sugar Reading:", $("bsreading").value];
 			logItem.sex = ["Male or Female:", sexValue];
-			logItem.condtion = ["Condition:", $("condtion").value];
+			logItem.condtion = ["Condition:", $("condition").value];
 			logItem.treatments = ["Current Treatment:", $("treatments").value];
 			logItem.comments = ["Comments:", $("comments").value];
 		//Saving data into local storage using Stringify
