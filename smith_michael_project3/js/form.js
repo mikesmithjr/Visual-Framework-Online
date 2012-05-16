@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", function () {
 				break;
 			case "off":
 				$("logEntryForm").style.display = "block";
-				$("clear").syle.display = "inline";
+				$("clear").style.display = "inline";
 				$("displayLog").style.display = "inline";
 				$("addNew").style.display = "none";
 				$("logItems").style.display = "none";
@@ -75,7 +75,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			logItem.currentTime = ["Current Time:", $("currentTime").value];
 			logItem.bsreading = ["Blood Sugar Reading:", $("bsreading").value];
 			logItem.sex = ["Male or Female:", sexValue];
-			logItem.condtion = ["Condition:", $("condition").value];
+			logItem.condition = ["Condition:", $("condition").value];
 			logItem.treatments = ["Current Treatment:", $("treatments").value];
 			logItem.comments = ["Comments:", $("comments").value];
 		//Saving data into local storage using Stringify
@@ -122,7 +122,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Log Entry";
-		//editLink.addEventListener("click", editItem);
+		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 
@@ -140,6 +140,34 @@ window.addEventListener("DOMContentLoaded", function () {
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 
+
+	}
+
+	function editItem() {
+		//grab the data from our item in local storage
+		var value = localStorage.getItem(this.key);
+		var logItem = JSON.parse(value);
+
+		//show form
+		toggleControls("off");
+
+		//Populate the form with current local storage values.
+		$("fname").value = logItem.fname[1];
+		$("lname").value = logItem.lname[1];
+		$("date").value = logItem.date[1];
+		$("currentTime").value = logItem.currentTime[1];
+		$("bsreading").value = logItem.bsreading[1];
+		var radios = document.forms[0].sex;
+		for(var i=0; i<radios.length; i++) {
+			if(radios[i].value == "Male" && logItem.sex[1] == "Male"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Female" && logItem.sex[1] == "Female"){
+				radios[i].setAttribute("checked", "checked");
+			}
+		}
+		$("condition").value = logItem.condition[1];
+		$("treatments").value = logItem.treatments[1];
+		$("comments").value = logItem.comments[1];
 
 	}
 
