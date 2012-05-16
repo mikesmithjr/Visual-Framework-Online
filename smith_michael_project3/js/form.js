@@ -169,7 +169,17 @@ window.addEventListener("DOMContentLoaded", function () {
 		$("treatments").value = logItem.treatments[1];
 		$("comments").value = logItem.comments[1];
 
+		//remove initial listener from the input "save log item" button
+		save.removeEventListener("click", storeData);
+		//Change submit button value to edit button
+		$("submit").value = "Edit Log Entry";
+		var editSubmit = $("submit");
+		//Save the key value established in this vunction as a property of the editSubmit event
+		//so we can use that value when we save the data
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
 	}
+
 
 	function clearData() {
 		if(localStorage.length === 0){
@@ -180,6 +190,10 @@ window.addEventListener("DOMContentLoaded", function () {
 			window.location.reload();
 			return false;
 		}
+	}
+
+	function validate(){
+		
 	}
 
 	
