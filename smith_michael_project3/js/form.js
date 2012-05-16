@@ -97,6 +97,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		$("logItems").style.display = "block";
 		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
+			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -109,8 +110,36 @@ window.addEventListener("DOMContentLoaded", function () {
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
 			}
+			makeItemLinks(localStorage.key(i), linksLi);//Create edit and delete links for each item in local storage.
 		}
+	}
+	//Function to create the edit and delete item links for each item in local storage.
+	function makeItemLinks(key, linksLi) {
+		//add edit single item link
+		var editLink = document.createElement("a");
+		editLink.href = "#";
+		editLink.key = key;
+		var editText = "Edit Log Entry";
+		//editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+
+		// add line break
+		var breakTag = document.createElement("br");
+		linksLi.appendChild(breaktag);
+
+		//add delete single item link
+		var deleteLink = document.createElement("a");
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Log Entry";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+
+
 	}
 
 	function clearData() {
