@@ -126,9 +126,10 @@ window.addEventListener("DOMContentLoaded", function () {
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 
+		/*
 		// add line break
 		var breakTag = document.createElement("br");
-		linksLi.appendChild(breaktag);
+		linksLi.appendChild(breaktag);*/
 
 		//add delete single item link
 		var deleteLink = document.createElement("a");
