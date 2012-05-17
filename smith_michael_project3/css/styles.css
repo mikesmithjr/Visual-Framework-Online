@@ -43,7 +43,7 @@ form{
 }
 
 li{
-	list-style: circle;
+	list-style: none;
 	font-family: Helvetica, sans-serif;
 }
 footer{
