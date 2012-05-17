@@ -8,7 +8,8 @@ window.addEventListener("DOMContentLoaded", function () {
 
 	//Variable defaults
 	var treatmentTypes = ["--Choose A Treatment--", "Diet and Pills", "Insulin Injections"],
-		sexValue;
+		sexValue,
+		errMsg = $("errors");
 
 	//getElementByID Function
 	function $(x) {
@@ -63,8 +64,16 @@ window.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	function storeData(){
+	function storeData(key){
+		//if there is no key , this is a new item and needs a key
+		if(!key){
 		var id = Math.floor(Math.random()*100000001);
+		}else{
+			//Set the id to the existing key we're editing so that it will save over the data.
+			//The key is the same key that's been passed along from the editSubmit event handler
+			//to the validate function, and then passed here.
+			id = key;
+		}
 		//Get Form Data and store in object
 		//Object properties contain array with form label and input value.
 		getSelectedRadio();
@@ -126,23 +135,23 @@ window.addEventListener("DOMContentLoaded", function () {
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 
-		/*
+		
 		// add line break
 		var breakTag = document.createElement("br");
-		linksLi.appendChild(breaktag);*/
+		linksLi.appendChild(breakTag);
 
 		//add delete single item link
 		var deleteLink = document.createElement("a");
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Log Entry";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 
 
 	}
-
+	//edit single item
 	function editItem() {
 		//grab the data from our item in local storage
 		var value = localStorage.getItem(this.key);
@@ -159,9 +168,9 @@ window.addEventListener("DOMContentLoaded", function () {
 		$("bsreading").value = logItem.bsreading[1];
 		var radios = document.forms[0].sex;
 		for(var i=0; i<radios.length; i++) {
-			if(radios[i].value == "Male" && logItem.sex[1] == "Male"){
+			if(radios[i].value == "male" && logItem.sex[1] == "male"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Female" && logItem.sex[1] == "Female"){
+			}else if(radios[i].value == "female" && logItem.sex[1] == "female"){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
@@ -170,7 +179,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		$("comments").value = logItem.comments[1];
 
 		//remove initial listener from the input "save log item" button
-		save.removeEventListener("click", storeData);
+		submitLink.removeEventListener("click", storeData);
 		//Change submit button value to edit button
 		$("submit").value = "Edit Log Entry";
 		var editSubmit = $("submit");
@@ -179,8 +188,17 @@ window.addEventListener("DOMContentLoaded", function () {
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
 	}
-
-
+	function deleteItem(){
+		var ask = confirm("Are you sure you want to delete this log entry?");
+		if(ask){
+			localStorage.removeItem(this.key);
+			window.location.reload();
+			alert("Log Entry was deleted.");
+		}else{
+			alert("Log entry was Not deleted.");
+		}
+	}
+	//clear local storage
 	function clearData() {
 		if(localStorage.length === 0){
 			alert("There is no data to clear.");
@@ -192,7 +210,71 @@ window.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	function validate(){
+	function validate(e){
+		//define elements to check
+		var getFname = $("fname");
+		var getLname = $("lname");
+		var getDate = $("date");
+		var getCurrentTime = $("currentTime");
+		var getBsreading = $("bsreading");
+		
+		// Reset Error Message
+		errMsg.innerHTML = "";
+		getFname.style.border = "1px solid black";
+		getLname.style.border = "1px solid black";
+		getDate.style.border = "1px solid black";
+		getCurrentTime.style.border = "1px solid black";
+		getBsreading.style.border = "1px solid black";
+
+		//Get error messages
+		var messagesAry = [];
+
+		//First Name validation
+		if(getFname.value===""){
+			var fnameError = "Please enter your First Name.";
+			getFname.style.border = "1px solid red";
+			messagesAry.push(fnameError);
+		}
+		//Last Name validation
+		if(getLname.value===""){
+			var lnameError = "Please enter your Last Name.";
+			getLname.style.border = "1px solid red";
+			messagesAry.push(lnameError);
+		}
+		//Date validation
+		if(getDate.value===""){
+			var dateError = "Please enter Today's Date.";
+			getDate.style.border = "1px solid red";
+			messagesAry.push(dateError);
+		}
+		//Current Time validation
+		if(getCurrentTime.value===""){
+			var timeError = "Please enter the Current Time.";
+			getCurrentTime.style.border = "1px solid red";
+			messagesAry.push(timeError);
+		}
+		//Blood Sugar Reading validation
+		if(getBsreading.value===""){
+			var bsreadingError = "Please enter your Blood Sugar Reading.";
+			getBsreading.style.border = "1px solid red";
+			messagesAry.push(bsreadingError);
+		}
+
+		//If there were errors, display them on the string
+		if(messagesAry.length >=1){
+			for(var i=0, j=messagesAry.length; i < j; i++){
+				var txt = document.createElement("li");
+				txt.innerHTML = messagesAry[i];
+				errMsg.appendChild(txt);
+			}
+			e.preventDefault();
+			return false;
+
+		}else{
+			//if all is ok save data.  Send the Key value that came from editData
+			//this key value was passed throught the editSubmit event listner as a property
+			storeData(this.key);
+		}
 		
 	}
 
@@ -206,7 +288,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	var clearLink = $("clear");
 	clearLink.addEventListener("click", clearData);
 	var submitLink = $("submit");
-	submitLink.addEventListener("click", storeData);
+	submitLink.addEventListener("click", validate);
 
 
 
