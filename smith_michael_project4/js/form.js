@@ -95,7 +95,8 @@ window.addEventListener("DOMContentLoaded", function () {
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There is no data in Local Storage.");
+			alert("There is no data in Local Storage so default data was added.");
+			autoFillData();
 		}
 		//Write Data from Local Storage to the browser
 		var makeDiv = document.createElement("div");
@@ -124,6 +125,18 @@ window.addEventListener("DOMContentLoaded", function () {
 			makeItemLinks(localStorage.key(i), linksLi);//Create edit and delete links for each item in local storage.
 		}
 	}
+	
+	//Auto Populate Default data to local storage
+	function autoFillData(){
+		//Store the JSON Object into local storage
+		for(var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	
+	}
+	
+	
 	//Function to create the edit and delete item links for each item in local storage.
 	function makeItemLinks(key, linksLi) {
 		//add edit single item link
@@ -168,9 +181,9 @@ window.addEventListener("DOMContentLoaded", function () {
 		$("bsreading").value = logItem.bsreading[1];
 		var radios = document.forms[0].sex;
 		for(var i=0; i<radios.length; i++) {
-			if(radios[i].value == "male" && logItem.sex[1] == "male"){
+			if(radios[i].value == "Male" && logItem.sex[1] == "Male"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "female" && logItem.sex[1] == "female"){
+			}else if(radios[i].value == "Female" && logItem.sex[1] == "Female"){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
