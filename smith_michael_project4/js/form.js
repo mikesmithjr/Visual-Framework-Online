@@ -1,4 +1,4 @@
-//Project 3 Visual Frameworks Term 1205
+//Project 4 Visual Frameworks Term 1205
 //Michael Smith Jr.
 //The Diabetic Blood Sugar Log
 
@@ -115,7 +115,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
 			makeli.appendChild(makeSubList);
-			getImage(makeSubList);
+			getImage(obj.treatments[1], makeSubList);
 			for(var n in obj){
 				var makeSubli = document.createElement("li");
 				makeSubList.appendChild(makeSubli);
@@ -128,7 +128,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 	
 	//Get image Function
-	function getImage(){
+	function getImage(treatType, makeSubList){
 		var imageLi = document.createElement("li");
 		makeSubList.appendChild(imageLi);
 		var newImage = document.createElement("img");

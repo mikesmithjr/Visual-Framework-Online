@@ -1,3 +1,8 @@
+//Project 4 Visual Frameworks Term 1205
+//Michael Smith Jr.
+//The Diabetic Blood Sugar Log
+
+
 var json = {
 	"logItem1": {
 		"fname": ["First Name:", "Mike"],
