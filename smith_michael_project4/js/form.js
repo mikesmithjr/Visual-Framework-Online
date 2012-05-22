@@ -7,7 +7,7 @@
 window.addEventListener("DOMContentLoaded", function () {
 
 	//Variable defaults
-	var treatmentTypes = ["--Choose A Treatment--", "Diet and Pills", "Insulin Injections"],
+	var treatmentTypes = ["--Choose A Treatment--", "Pills", "Insulin"],
 		sexValue,
 		errMsg = $("errors");
 
