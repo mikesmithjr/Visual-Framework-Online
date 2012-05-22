@@ -1,0 +1,55 @@
+/*
+Project 3 Visual Frameworks Term 1205
+Michael Smith Jr.
+The Diabetic Blood Sugar Log
+*/
+
+
+
+body{
+	background: lightblue;
+}
+
+
+
+h1{
+	background: lightgrey;
+	
+	padding: 20px;
+	border: 1px solid black;
+	width: 75%;
+	
+	font-weight: bold;
+	font-size: 16px;
+	font-family: Helvetica, sans-serif;
+}
+
+label{
+	display: block;
+	word-spacing: 0.2em;
+}
+
+legend{
+	font-weight: bold;
+	font-size: 14px;
+	font-family: Helvetica, sans-serif;
+}
+
+a:hover{color:green; outline: 1px dotted red;}
+
+form{
+	overflow: scroll;
+
+}
+
+li{
+	list-style: none;
+	font-family: Helvetica, sans-serif;
+}
+footer{
+	background: white;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid black;
+	text-align: center;
+}
