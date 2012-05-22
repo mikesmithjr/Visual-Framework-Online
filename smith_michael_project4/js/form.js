@@ -115,6 +115,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
 			makeli.appendChild(makeSubList);
+			getImage(makeSubList);
 			for(var n in obj){
 				var makeSubli = document.createElement("li");
 				makeSubList.appendChild(makeSubli);
@@ -124,6 +125,17 @@ window.addEventListener("DOMContentLoaded", function () {
 			}
 			makeItemLinks(localStorage.key(i), linksLi);//Create edit and delete links for each item in local storage.
 		}
+	}
+	
+	//Get image Function
+	function getImage(){
+		var imageLi = document.createElement("li");
+		makeSubList.appendChild(imageLi);
+		var newImage = document.createElement("img");
+		var setSrc = newImage.setAttribute("src", "images/"+ treatType + ".jpg");
+		imageLi.appendChild(newImage);
+	
+	
 	}
 	
 	//Auto Populate Default data to local storage
