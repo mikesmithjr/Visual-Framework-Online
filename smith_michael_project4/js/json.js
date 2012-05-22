@@ -7,7 +7,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "125"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "7"],
-		"treatments": ["Current Treatment:", "Diet and Pills"],
+		"treatments": ["Current Treatment:", "Pills"],
 		"comments":	["Comments:", "Feeling Great Today!!"]
 	},
 
@@ -19,7 +19,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "75"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "4"],
-		"treatments": ["Current Treatment:", "Diet and Pills"],
+		"treatments": ["Current Treatment:", "Pills"],
 		"comments":	["Comments:", "Not feeling well."]
 	},
 	
@@ -31,7 +31,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "165"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "5"],
-		"treatments": ["Current Treatment:", "Diet and Pills"],
+		"treatments": ["Current Treatment:", "Pills"],
 		"comments":	["Comments:", "Feeling OK."]
 	},
 	
@@ -43,7 +43,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "115"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "8"],
-		"treatments": ["Current Treatment:", "Diet and Pills"],
+		"treatments": ["Current Treatment:", "Pills"],
 		"comments":	["Comments:", "Feeling Great!!"]
 	},
 	"logItem5": {
@@ -54,7 +54,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "125"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "10"],
-		"treatments": ["Current Treatment:", "Diet and Pills"],
+		"treatments": ["Current Treatment:", "Pills"],
 		"comments":	["Comments:", "Feeling Awesome!!"]
 	}
 	
