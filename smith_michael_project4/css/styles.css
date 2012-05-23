@@ -24,10 +24,32 @@ h1{
 	font-family: Helvetica, sans-serif;
 }
 
+#questions{
+	list-style: none;
+	background: white;
+	padding:  20px;
+	margin-bottom: 10px;
+	border: 1px solid black;
+}
+
+#logItem{
+	list-style: none;
+	background: lightgrey;
+	padding:  20px;
+	margin-bottom: 10px;
+	border: 1px solid black;
+}
+
+li{
+	list-style: none;
+	font-family: Helvetica, sans-serif;
+
 label{
 	display: block;
 	word-spacing: 0.2em;
 }
+
+
 
 legend{
 	font-weight: bold;
@@ -42,9 +64,7 @@ form{
 
 }
 
-li{
-	list-style: none;
-	font-family: Helvetica, sans-serif;
+
 }
 footer{
 	background: white;
