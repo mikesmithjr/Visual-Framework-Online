@@ -26,7 +26,7 @@ h1{
 
 #questions{
 	list-style: none;
-	background: white;
+	background: lightgrey;
 	padding:  20px;
 	margin-bottom: 10px;
 	border: 1px solid black;
@@ -67,7 +67,7 @@ form{
 
 }
 footer{
-	background: white;
+	background: lightgrey;
 	margin-left: 10px;
 	margin-right: 10px;
 	border: 1px solid black;
