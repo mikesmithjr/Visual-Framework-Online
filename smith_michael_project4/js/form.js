@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", function () {
 				$("addNew").style.display = "inline";
 				break;
 			case "off":
-				$("logEntryForm").style.display = "inline";
+				$("logEntryForm").style.display = "block";
 				$("clear").style.display = "inline";
 				$("displayLog").style.display = "inline";
 				$("addNew").style.display = "none";
@@ -105,7 +105,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		makeList.setAttribute("id", "logEntry");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$("logItems").style.display = "inline";
+		$("logItems").style.display = "block";
 		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
 			makeli.setAttribute("id", "logItem");
@@ -306,7 +306,9 @@ window.addEventListener("DOMContentLoaded", function () {
 	}
 	
 	
-	
+	/*function showValue(newValue){
+			$("range").innerHTML=newValue;
+		}*/
 
 
 	
@@ -320,6 +322,8 @@ window.addEventListener("DOMContentLoaded", function () {
 	clearLink.addEventListener("click", clearData);
 	var submitLink = $("submit");
 	submitLink.addEventListener("click", validate);
+	/*var displayRange = $("condition");
+	displayRange.addEventListener("onchange", showValue);*/
 
 
 
