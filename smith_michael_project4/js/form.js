@@ -53,7 +53,7 @@ window.addEventListener("DOMContentLoaded", function () {
 				$("addNew").style.display = "inline";
 				break;
 			case "off":
-				$("logEntryForm").style.display = "block";
+				$("logEntryForm").style.display = "inline";
 				$("clear").style.display = "inline";
 				$("displayLog").style.display = "inline";
 				$("addNew").style.display = "none";
@@ -102,11 +102,13 @@ window.addEventListener("DOMContentLoaded", function () {
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "logItems");
 		var makeList = document.createElement("ul");
+		makeList.setAttribute("id", "logEntry");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$("logItems").style.display = "block";
+		$("logItems").style.display = "inline";
 		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
+			makeli.setAttribute("id", "logItem");
 			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
@@ -302,6 +304,10 @@ window.addEventListener("DOMContentLoaded", function () {
 		}
 		
 	}
+	
+	
+	
+
 
 	
 	makeCats();
