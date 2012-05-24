@@ -39,6 +39,13 @@
 		<!--Form Title-->
 		<header>
 			<h1>Blood Sugar Log Entry Form</h1>
+			<nav>
+			
+				<a href='#' id="clear">Clear Stored Data</a>
+				<a href='#' id="displayLog">Display Log</a>
+				<a href='additem.html' id="addNew" style="display:none;">Add New Log</a>
+				
+			</nav>
 		</header>
 		<!--Log Entry Form-->
 		<form action="#" method="post" id="logEntryForm">
@@ -53,7 +60,7 @@
 					<li><label for="time">*Current Time:</label><input type="time" id="currentTime"></li>
 					<li><label for="bsreading">*Blood Sugar Reading:</label><input type="number" min="10" max="400" name="bsreading" id="bsreading"></li>
 					<li><label for="sex">Are you male or female?:</label>
-						<ul>
+						<ul id="sex">
 							<li><input type="radio" value="Male" id="male" name="sex"><label for="Male">Male</label></li>
 							<li><input type="radio" value="Female" id="female" name="sex"><label for="Female">Female</label></li>
 						</ul>
@@ -68,13 +75,7 @@
 			</fieldset>
 		</form>
 		<footer>
-			<nav>
 			
-				<a href='#' id="clear">Clear Stored Data</a>
-				<a href='#' id="displayLog">Display Log</a>
-				<a href='additem.html' id="addNew" style="display:none;">Add New Log</a>
-				
-			</nav>
 
 		</footer>
 	<script type="text/javascript" src="js/json.js"></script>
