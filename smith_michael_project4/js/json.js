@@ -24,7 +24,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "75"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "4"],
-		"treatments": ["Current Treatment:", "Pills"],
+		"treatments": ["Current Treatment:", "Insulin"],
 		"comments":	["Comments:", "Not feeling well."]
 	},
 	
@@ -48,7 +48,7 @@ var json = {
 		"bsreading": ["Blood Sugar Reading:", "115"],
 		"sex": ["Male or Female:", "Male"],
 		"condition": ["Condition:", "8"],
-		"treatments": ["Current Treatment:", "Pills"],
+		"treatments": ["Current Treatment:", "Insulin"],
 		"comments":	["Comments:", "Feeling Great!!"]
 	},
 	"logItem5": {
